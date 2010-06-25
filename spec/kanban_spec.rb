@@ -7,11 +7,6 @@ describe "Kanban" do
     @app ||= Sinatra::Application
   end
 
-  it "should respond to /hi" do
-    get '/hi'
-    last_response.should be_ok
-  end
-
   it 'should respond to /board' do
     get '/board'
     last_response.should be_ok
@@ -19,7 +14,7 @@ describe "Kanban" do
   end
 
   it 'should receive some params' do
-    get '/board?[board%20name],test=1'
-    last_request.params.should_not be_empty
+    get '/board?nome%2520do%2520board%3D%3Cbacklog%5Bbilling%5D%3E%3Cprocessing%5Bfeature%25201%5D%5Bfeature%25202%5D%3E%3Cdone%5Bdeploy%2520infrastructure%5D%3E'
+    last_response.should be_ok
   end
 end
